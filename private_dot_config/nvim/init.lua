@@ -34,13 +34,10 @@ map('i', '<M-b>', '<ESC>Bi', opt)
 
 -- Leader Mappings.
 map('n', '<Leader><Space>', ':noh<CR>', opt)
-map('n', '<Leader>b', ':ls<CR>:b<Space>', opt)
-map('n', '<Leader>f', ':FZF<CR>', opt)
+
+-- Misc Mappings.
+map('n', '<C-x>b', ':ls<CR>:b<Space>', opt)
+map('n', '<C-x><C-f>', ':FZF<CR>', opt)
 
 require('_tree')
-
--- Vim-airline.
-local gset = vim.api.nvim_set_var
-gset('airline#extensions#tabline#enabled', 1)
-gset('airline#extensions#tabline#buffer_nr_show', 1)
 
