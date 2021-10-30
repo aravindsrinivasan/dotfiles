@@ -19,8 +19,10 @@ require('packer').startup(function()
   use 'airblade/vim-rooter'
 
   -- Status/Tab line.
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
 
   -- Indentation guide line.
   use 'lukas-reineke/indent-blankline.nvim'
@@ -39,4 +41,28 @@ require("indent_blankline").setup {
 
 -- Setup color scheme.
 vim.g.colors_name = 'tokyonight'
+
+-- Setup lualine.
+require('lualine').setup {
+  options = {
+    theme = 'tokyonight'
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff',
+                  {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+    lualine_c = {},
+    lualine_x = {'filetype'},
+    lualine_y = {'location'},
+    lualine_z = {'progress'}
+  },
+  tabline = {
+    lualine_a = {'buffers'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'tabs'}
+  }
+}
 
