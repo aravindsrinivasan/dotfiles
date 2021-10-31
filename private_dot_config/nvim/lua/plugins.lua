@@ -6,11 +6,14 @@ require('packer').startup(function()
   -- Syntax highlighting.
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
+  -- LSP.
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+  
   -- File explorer.
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {} end
   }
 
   -- Fuzzy search.
@@ -20,8 +23,8 @@ require('packer').startup(function()
 
   -- Status/Tab line.
   use {
-  'nvim-lualine/lualine.nvim',
-  requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   -- Indentation guide line.

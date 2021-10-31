@@ -13,6 +13,10 @@ require('settings')
 -- Packer.
 require('plugins')
 
+-- LSP Config.
+require('lsp_config')
+vim.lsp.set_log_level("debug")
+
 -- Mappings.
 vim.g.mapleader = ' '
 local map = vim.api.nvim_set_keymap
@@ -39,5 +43,9 @@ map('n', '<Leader><Space>', ':noh<CR>', opt)
 map('n', '<C-x>b', ':ls<CR>:b<Space>', opt)
 map('n', '<C-x><C-f>', ':FZF<CR>', opt)
 
-require('_tree')
+require('nvim_tree')
+
+-- Treesitter Config.
+local ts = require 'nvim-treesitter.configs'
+ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 
