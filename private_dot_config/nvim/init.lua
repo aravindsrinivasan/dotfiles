@@ -38,12 +38,12 @@ map('i', '<C-a>', '<ESC>I', opt)
 map('i', '<C-e>', '<ESC>A', opt)
 map('i', '<M-f>', '<ESC><Space>Wi', opt)
 map('i', '<M-b>', '<ESC>Bi', opt)
-map('i', '<M-BS>', '<ESC>Bcw', opt)
+map('i', '<M-BS>', '<ESC>bcw', opt)
 
 -- Leader Mappings.
 map('n', '<Leader><Space>', ':noh<CR>', opt)
 
 -- Misc Mappings.
-map('n', '<C-x>b', ':ls<CR>:b<Space>', opt)
+map('n', '<C-x>b', ':Buffers<CR>', opt)
 map('n', '<C-x><C-f>', ':FZF<CR>', opt)
 
