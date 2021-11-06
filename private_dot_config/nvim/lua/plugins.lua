@@ -43,7 +43,7 @@ require('packer').startup(function()
 
   -- Color scheme.
   use 'folke/tokyonight.nvim'
-  use 'sainnhe/sonokai'
+  use 'navarasu/onedark.nvim'
 end)
 
 -- Setup indent guide.
@@ -55,12 +55,15 @@ require("indent_blankline").setup {
 }
 
 -- Setup color scheme.
-vim.g.colors_name = 'tokyonight'
+ vim.g.onedark_style = 'darker'
+ require('onedark').setup()
+
+-- vim.g.colors_name = 'tokyonight'
 
 -- Setup lualine.
 require('lualine').setup {
   options = {
-    theme = 'tokyonight'
+    theme = 'onedark'
   },
   sections = {
     lualine_a = {'mode'},
