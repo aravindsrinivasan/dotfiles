@@ -35,9 +35,14 @@ require('packer').startup(function()
   -- Indentation guide line.
   use 'lukas-reineke/indent-blankline.nvim'
 
+  -- Comment out regions/lines.
+  use 'tpope/vim-commentary'
+
   -- Autopairs
   use 'windwp/nvim-autopairs'
 
+  -- Git commands.
+  use 'tpope/vim-fugitive'
   -- Gitsigns.
   use {
     'lewis6991/gitsigns.nvim',
