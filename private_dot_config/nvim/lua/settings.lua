@@ -23,6 +23,11 @@ vim.opt.cursorline = true -- highlight the current line.
 vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time.
 vim.opt.scrolloff = 8 -- Lines to keep above and below cursor.
 vim.opt.sidescrolloff = 8
+vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
+vim.opt.title = true -- set the title of window to the value of the titlestring
+vim.opt.titlestring = "%<%F" -- what the title of the window will be set to
+
 
 -- Highlight on yank
 vim.api.nvim_exec(
