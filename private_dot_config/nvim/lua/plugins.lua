@@ -35,6 +35,9 @@ require('packer').startup(function()
   -- Indentation guide line.
   use 'lukas-reineke/indent-blankline.nvim'
 
+  -- Autopairs
+  use 'windwp/nvim-autopairs'
+
   -- Gitsigns.
   use {
     'lewis6991/gitsigns.nvim',
@@ -51,14 +54,13 @@ vim.opt.list = true
 require("indent_blankline").setup {
   show_current_context = true,
   filetype_exclude = {'help', 'packer'},
-  buftype_exclude = {'terminal', 'nofile'}
+  buftype_exclude = {'terminal', 'nofile'},
+  show_trailing_blankline_indent = false,
 }
 
 -- Setup color scheme.
  vim.g.onedark_style = 'darker'
  require('onedark').setup()
-
--- vim.g.colors_name = 'tokyonight'
 
 -- Setup lualine.
 require('lualine').setup {
@@ -83,6 +85,9 @@ require('lualine').setup {
     lualine_z = {'tabs'}
   }
 }
+
+-- Setup Autopairs
+require('nvim-autopairs').setup{}
 
 -- Setup Treesitter.
 require('nvim-treesitter.configs').setup {
