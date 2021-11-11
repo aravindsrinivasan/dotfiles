@@ -41,6 +41,9 @@ require('packer').startup(function()
   -- Autopairs
   use 'windwp/nvim-autopairs'
 
+  -- Yank to system clipboard (including ssh sessions.)
+  use 'ojroques/vim-oscyank'
+
   -- Git commands.
   use 'tpope/vim-fugitive'
   -- Gitsigns.

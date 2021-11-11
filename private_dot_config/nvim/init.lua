@@ -42,8 +42,19 @@ map('i', '<M-BS>', '<ESC>bcw', opt)
 
 -- Leader Mappings.
 map('n', '<Leader><Space>', ':noh<CR>', opt)
+map('n', '<Leader>osc', ':OSCYankReg +<CR>', opt)
+map('v', '<Leader>c', ':OSCYank<CR>', opt)
 
 -- Misc Mappings.
 map('n', '<C-x>b', ':Buffers<CR>', opt)
 map('n', '<C-x><C-f>', ':FZF<CR>', opt)
+map('n', '<C-x><C-h>', ':History<CR>', opt)
+
+_G.copy_file_path_to_clipboard = function()
+  vim.cmd [[
+    let @f = expand('%')
+    OSCYankReg f
+  ]]
+end
+map('n', '<Leader>c', '<cmd>lua copy_file_path_to_clipboard()<CR>', opt)
 
