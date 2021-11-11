@@ -10,5 +10,8 @@ vim.g.nvim_tree_gitignore = 1
 
 require'nvim-tree'.setup{
   auto_close = true,
+  view = {
+    width = 50,
+  },
 }
 
