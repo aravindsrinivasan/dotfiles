@@ -7,21 +7,19 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+vim.g.mapleader = ' '
+
 -- Vim settings.
 require('settings')
 
 -- Packer.
 require('plugins')
 
--- Nvim-tree.
-require('nvim_tree')
-
 -- LSP Config.
 require('lsp_config')
 -- vim.lsp.set_log_level("debug")
 
 -- Mappings.
-vim.g.mapleader = ' '
 local map = vim.api.nvim_set_keymap
 local opt = {noremap = true, silent = true}
 
@@ -42,13 +40,14 @@ map('i', '<M-BS>', '<ESC>bcw', opt)
 
 -- Leader Mappings.
 map('n', '<Leader><Space>', ':noh<CR>', opt)
-map('n', '<Leader>osc', ':OSCYankReg +<CR>', opt)
+map('n', '<Leader>sc', ':OSCYankReg +<CR>', opt)
 map('v', '<Leader>c', ':OSCYank<CR>', opt)
 
 -- Misc Mappings.
-map('n', '<C-x>b', ':Buffers<CR>', opt)
+map('n', '<C-x><C-b>', ':Buffers<CR>', opt)
 map('n', '<C-x><C-f>', ':FZF<CR>', opt)
 map('n', '<C-x><C-h>', ':History<CR>', opt)
+map('n', '<C-Space>', ':NvimTreeFindFileToggle<CR>', opt)
 
 _G.copy_file_path_to_clipboard = function()
   vim.cmd [[

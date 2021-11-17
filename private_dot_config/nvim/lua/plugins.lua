@@ -46,6 +46,13 @@ require('packer').startup(function()
 
   -- Git commands.
   use 'tpope/vim-fugitive'
+
+  -- Github links for files.
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+  }
+
   -- Gitsigns.
   use {
     'lewis6991/gitsigns.nvim',
@@ -104,6 +111,17 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {'tabs'}
   }
+}
+
+-- Nvim-tree setup.
+vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '.vscode', 'bazel-bin', 'bazel-Nuro', 'bazel-out', 'bazel-testlogs'}
+vim.g.nvim_tree_gitignore = 1
+
+require('nvim-tree').setup{
+  auto_close = true,
+  view = {
+    width = 50,
+  },
 }
 
 -- Setup Autopairs
@@ -175,3 +193,24 @@ require('gitsigns').setup {
   numhl      = true,
 }
 
+-- Setup Gitlinker.
+require("gitlinker").setup{
+  opts = {
+    remote = nil, -- force the use of a specific remote
+    -- adds current line nr in the url for normal mode
+    add_current_line_on_normal_mode = true,
+    -- Copies the url into the clipboard via the @g reigster.
+    action_callback = function(url)
+      vim.api.nvim_command("let @g = '" .. url .. "'")
+      vim.api.nvim_command("OSCYankReg g")
+    end,
+    -- print the url after performing the action
+    print_url = true,
+  },
+  callbacks = {
+        ["github.com"] = require"gitlinker.hosts".get_github_type_url,
+        ["gitent.corp.nuro.team"] = require"gitlinker.hosts".get_github_type_url,
+  },
+-- default mapping to call url generation with action_callback
+  mappings = "<Leader>gy",
+}
