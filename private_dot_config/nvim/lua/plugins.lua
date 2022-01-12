@@ -53,6 +53,9 @@ require('packer').startup(function()
     requires = 'nvim-lua/plenary.nvim',
   }
 
+  -- Glow integration for markdown rendering.
+  use "ellisonleao/glow.nvim"
+
   -- Gitsigns.
   use {
     'lewis6991/gitsigns.nvim',
@@ -74,8 +77,10 @@ require("indent_blankline").setup {
 }
 
 -- Setup color scheme.
- vim.g.onedark_style = 'darker'
- require('onedark').setup()
+ require('onedark').setup{
+   style = 'darker'
+ }
+ require('onedark').load()
 
 -- Setup lualine.
 require('lualine').setup {
