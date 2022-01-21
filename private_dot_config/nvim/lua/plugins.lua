@@ -119,9 +119,6 @@ require('lualine').setup {
 }
 
 -- Nvim-tree setup.
-vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '.vscode', 'bazel-bin', 'bazel-Nuro', 'bazel-out', 'bazel-testlogs'}
-vim.g.nvim_tree_gitignore = 1
-
 require('nvim-tree').setup{
   auto_close = true,
   view = {
