@@ -21,6 +21,9 @@ require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
   }
 
+  -- Motion.
+  use 'ggandor/lightspeed.nvim'
+
   -- Fuzzy search.
   use {'junegunn/fzf', hook='./install --all' }
   use 'junegunn/fzf.vim'
