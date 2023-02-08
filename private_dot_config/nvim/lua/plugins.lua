@@ -123,7 +123,6 @@ require('lualine').setup {
 
 -- Nvim-tree setup.
 require('nvim-tree').setup{
-  auto_close = true,
   view = {
     width = 50,
   },
