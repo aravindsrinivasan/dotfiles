@@ -134,7 +134,7 @@ require('nvim-autopairs').setup{}
 
 -- Setup Treesitter.
 require('nvim-treesitter.configs').setup {
-  ensure_installed = 'maintained',
+  ensure_installed = { "c", "lua", "vim", "help", "python"},
   highlight = {
     enable = true, -- false will disable the whole extension
   },
