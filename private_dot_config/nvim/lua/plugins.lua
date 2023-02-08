@@ -129,6 +129,16 @@ require('nvim-tree').setup{
   view = {
     width = 50,
   },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 400,
+  },
+  filters = {
+    custom = {
+      "bazel-.*", "external.*"
+    },
+  }
 }
 
 -- Setup Autopairs
