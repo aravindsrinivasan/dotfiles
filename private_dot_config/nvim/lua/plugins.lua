@@ -135,8 +135,14 @@ require('nvim-autopairs').setup{}
 -- Setup Treesitter.
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "c", "lua", "vim", "help", "python"},
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
   highlight = {
     enable = true, -- false will disable the whole extension
+
   },
   incremental_selection = {
     enable = true,
