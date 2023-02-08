@@ -68,6 +68,9 @@ require('packer').startup(function()
   -- Color scheme.
   use 'folke/tokyonight.nvim'
   use 'navarasu/onedark.nvim'
+
+  -- Codeium code completion.
+  use 'Exafunction/codeium.vim'
 end)
 
 -- Setup indent guide.
