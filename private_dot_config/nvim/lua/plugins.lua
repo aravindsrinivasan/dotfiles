@@ -70,7 +70,7 @@ require('packer').startup(function()
   use 'navarasu/onedark.nvim'
 
   -- Codeium code completion.
-  use 'Exafunction/codeium.vim'
+  -- use 'Exafunction/codeium.vim'
 end)
 
 -- Setup indent guide.
@@ -128,6 +128,11 @@ require('lualine').setup {
 require('nvim-tree').setup{
   view = {
     width = 50,
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
   },
   git = {
     enable = true,
