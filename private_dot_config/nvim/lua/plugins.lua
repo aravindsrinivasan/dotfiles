@@ -71,6 +71,9 @@ require('packer').startup(function()
 
   -- Codeium code completion.
   -- use 'Exafunction/codeium.vim'
+
+  -- Copilit code completion.
+  use 'github/copilot.vim'
 end)
 
 -- Setup indent guide.
@@ -133,11 +136,6 @@ require('nvim-tree').setup{
     indent_markers = {
       enable = true,
     },
-  },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 400,
   },
   filters = {
     custom = {

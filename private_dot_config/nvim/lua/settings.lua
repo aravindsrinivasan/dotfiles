@@ -28,7 +28,6 @@ vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying me
 vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F" -- what the title of the window will be set to
 
-
 -- Highlight on yank
 vim.api.nvim_exec(
   [[
