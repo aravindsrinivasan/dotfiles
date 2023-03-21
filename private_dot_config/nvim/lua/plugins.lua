@@ -258,7 +258,7 @@ require("gitlinker").setup{
     -- Copies the url into the clipboard via the @g reigster.
     action_callback = function(url)
       vim.api.nvim_command("let @g = '" .. url .. "'")
-      vim.api.nvim_command("OSCYankReg g")
+      vim.api.nvim_command("OSCYankRegister g")
     end,
     -- print the url after performing the action
     print_url = true,
