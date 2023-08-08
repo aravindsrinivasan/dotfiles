@@ -80,7 +80,7 @@ end)
 vim.opt.list = true
 require("indent_blankline").setup {
   show_current_context = true,
-  filetype_exclude = {'help', 'packer'},
+  filetype_exclude = {'packer'},
   buftype_exclude = {'terminal', 'nofile'},
   show_trailing_blankline_indent = false,
 }
@@ -149,7 +149,7 @@ require('nvim-autopairs').setup{}
 
 -- Setup Treesitter.
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "c", "lua", "vim", "help", "python"},
+  ensure_installed = { "c", "lua", "vim", "python"},
 
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
