@@ -31,7 +31,12 @@ return {
   },
 
   -- Motion.
-   'ggandor/lightspeed.nvim',
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end,
+  },
 
   -- Fuzzy search.
    {'junegunn/fzf', hook='./install --all' },
