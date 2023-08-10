@@ -116,7 +116,7 @@ return {
   },
 
   -- Glow integration for markdown rendering.
-   "ellisonleao/glow.nvim",
+   {'ellisonleao/glow.nvim', config = true, cmd = 'Glow'},
 
   -- Gitsigns.
   {

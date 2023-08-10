@@ -27,6 +27,7 @@ vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboar
 vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F" -- what the title of the window will be set to
+vim.opt.list = true -- Show trailing whitespace
 
 -- Highlight on yank
 vim.api.nvim_exec(
