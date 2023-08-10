@@ -21,6 +21,36 @@ return {
    'saadparwaiz1/cmp_luasnip',
    'L3MON4D3/LuaSnip',
 
+  -- External tooling manager
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end,
+  },
+
+  -- Null LS
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
+    config = function()
+      local null_ls = require('null-ls')
+      null_ls.setup({
+        sources = {
+          -- Python
+          null_ls.builtins.formatting.ruff,
+          null_ls.builtins.diagnostics.ruff,
+          null_ls.builtins.diagnostics.mypy,
+
+          -- Shell
+          null_ls.builtins.diagnostics.shellcheck,
+          null_ls.builtins.code_actions.shellcheck,
+          null_ls.builtins.formatting.shfmt,
+        }
+      })
+    end,
+  },
+
   -- File explorer.
   {
     'kyazdani42/nvim-tree.lua',
