@@ -30,6 +30,9 @@ require('lsp_config')
 local map = vim.api.nvim_set_keymap
 local opt = {noremap = true, silent = true}
 
+-- Map Ctrl-c to ESC so the InsertLeave autocommand event is triggered.
+map('i', '<C-c>', '<Esc>', opt)
+
 -- Split Screen Mappings.
 map('n', '<C-h>', '<C-w>h', opt)
 map('n', '<C-l>', '<C-w>l', opt)
@@ -63,4 +66,3 @@ _G.copy_file_path_to_clipboard = function()
   ]]
 end
 map('n', '<Leader>c', '<cmd>lua copy_file_path_to_clipboard()<CR>', opt)
-

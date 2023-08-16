@@ -43,7 +43,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Map buffer local keybindings when the language server attaches
-local servers = {'pylsp', 'clangd', 'terraformls'}
+local servers = {'clangd', 'terraformls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -53,6 +53,36 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+
+nvim_lsp.pylsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          enabled = false
+        },
+        pyflakes = {
+          enabled = false
+        },
+        mccabe = {
+          enabled = false
+        },
+        yapf = {
+          enabled = false
+        },
+        autopep8 = {
+          enabled = false
+        }
+      }
+    }
+  },
+}
 
 -- Setup Go Server.
 nvim_lsp.gopls.setup {
