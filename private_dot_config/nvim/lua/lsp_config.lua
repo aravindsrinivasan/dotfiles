@@ -43,7 +43,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Map buffer local keybindings when the language server attaches
-local servers = {'clangd', 'terraformls'}
+local servers = {'clangd', 'terraformls', 'tsserver'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
