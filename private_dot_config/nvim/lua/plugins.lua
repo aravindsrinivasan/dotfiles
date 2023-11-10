@@ -39,6 +39,7 @@ return {
         sources = {
           -- Python
           null_ls.builtins.formatting.ruff,
+          null_ls.builtins.formatting.black,
           null_ls.builtins.diagnostics.ruff,
           null_ls.builtins.diagnostics.mypy,
 
@@ -77,7 +78,6 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = 'kyazdani42/nvim-web-devicons',
-    lazy = true,
     config = function()
       require 'config.lualine'
       end,
