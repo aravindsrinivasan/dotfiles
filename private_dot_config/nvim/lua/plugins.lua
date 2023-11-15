@@ -41,7 +41,6 @@ return {
           null_ls.builtins.formatting.ruff,
           null_ls.builtins.formatting.black,
           null_ls.builtins.diagnostics.ruff,
-          null_ls.builtins.diagnostics.mypy,
 
           -- Shell
           null_ls.builtins.diagnostics.shellcheck,

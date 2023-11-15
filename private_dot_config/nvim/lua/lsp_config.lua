@@ -55,32 +55,11 @@ for _, lsp in ipairs(servers) do
 end
 
 
-nvim_lsp.pylsp.setup {
+nvim_lsp.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = {
     debounce_text_changes = 150,
-  },
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          enabled = false
-        },
-        pyflakes = {
-          enabled = false
-        },
-        mccabe = {
-          enabled = false
-        },
-        yapf = {
-          enabled = false
-        },
-        autopep8 = {
-          enabled = false
-        }
-      }
-    }
   },
 }
 
