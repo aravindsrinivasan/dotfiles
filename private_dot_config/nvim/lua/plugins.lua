@@ -85,12 +85,10 @@ return {
   -- Indentation guide line.
   {
     'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      show_current_context = true,
-      filetype_exclude = {'packer'},
-      buftype_exclude = {'terminal', 'nofile'},
-      show_trailing_blankline_indent = false,
-    },
+    main = 'ibl',
+    config = function()
+      require('ibl').setup()
+    end,
   },
 
   -- Comment out regions/lines.
