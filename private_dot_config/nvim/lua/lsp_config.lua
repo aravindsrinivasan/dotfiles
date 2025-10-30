@@ -135,3 +135,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Integrate nvim-autopairs with nvim-cmp
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
