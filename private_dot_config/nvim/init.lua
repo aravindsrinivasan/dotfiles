@@ -26,6 +26,9 @@ require('settings')
 require('lsp_config')
 -- vim.lsp.set_log_level("debug")
 
+-- FZF Configuration.
+vim.env.FZF_DEFAULT_OPTS = '--layout=reverse'
+
 -- Mappings.
 local map = vim.api.nvim_set_keymap
 local opt = {noremap = true, silent = true}
