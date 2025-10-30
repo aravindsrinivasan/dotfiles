@@ -29,9 +29,9 @@ return {
     end,
   },
 
-  -- Null LS
+  -- None-ls (maintained fork of null-ls)
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
       local null_ls = require('null-ls')
@@ -64,7 +64,8 @@ return {
   {
     'ggandor/leap.nvim',
     config = function()
-      require('leap').add_default_mappings()
+      vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+      vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
     end,
   },
 

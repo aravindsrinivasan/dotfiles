@@ -3,8 +3,6 @@
 -- 	https://github.com/neovim/nvim-lspconfig/README.md
 -- 	https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 
-local nvim_lsp = require('lspconfig')
-
 local diagnostic_opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, diagnostic_opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, diagnostic_opts)
@@ -42,31 +40,20 @@ end
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Map buffer local keybindings when the language server attaches
-local servers = {'clangd', 'terraformls', 'tsserver'}
+-- Configure global LSP settings
+vim.lsp.config('*', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- Enable standard language servers
+local servers = {'clangd', 'terraformls', 'ts_ls', 'pyright'}
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
+  vim.lsp.enable(lsp)
 end
 
-
-nvim_lsp.pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
-
--- Setup Go Server.
-nvim_lsp.gopls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
+-- Setup Go Server with specific settings
+vim.lsp.config.gopls = {
   cmd = {"gopls", "serve"},
   settings = {
     gopls = {
@@ -77,6 +64,7 @@ nvim_lsp.gopls.setup {
     },
   },
 }
+vim.lsp.enable('gopls')
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,{
