@@ -46,8 +46,15 @@ vim.lsp.config('*', {
   capabilities = capabilities,
 })
 
--- Enable standard language servers
-local servers = {'clangd', 'terraformls', 'ts_ls', 'pyright'}
+-- Configure TypeScript Server
+-- Explicitly set on_attach to ensure our keybindings are used
+vim.lsp.config.ts_ls = {
+  on_attach = on_attach,
+}
+vim.lsp.enable('ts_ls')
+
+-- Enable other language servers
+local servers = {'clangd', 'terraformls', 'pyright'}
 for _, lsp in ipairs(servers) do
   vim.lsp.enable(lsp)
 end
@@ -55,6 +62,7 @@ end
 -- Setup Go Server with specific settings
 vim.lsp.config.gopls = {
   cmd = {"gopls", "serve"},
+  on_attach = on_attach,
   settings = {
     gopls = {
       analyses = {
